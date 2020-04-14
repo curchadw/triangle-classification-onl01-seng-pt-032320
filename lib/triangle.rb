@@ -1,18 +1,18 @@
 class Triangle
   # write code here
-  attr_accessor :side1, :side2, :side3
-  def initialize(side1, side2, side3)
-    @side1 = side1
-    @side2 = side2
-    @side3 = side3
+  attr_accessor :a, :b, :c
+  def initialize(a,b,c)
+    @a = a 
+    @b = b 
+    @c = c 
   end
 
   def kind
-    side1,side2,side3 = [side1,side2,side3].sort
-    raise TriangleError if side1<=0 || side1 + side2 <= side3
-    return :equilateral if side1 == side3 
-    return :isosceles if side1 == side2 || side2 == side3
-    return scalene
+  a, b, c = [@a, @b, @c].sort
+  raise TriangleError if a <= 0 or a + b <= c
+  return :equilateral if a == c
+  return :isosceles if a == b or b == c
+  return :scalene
     # if ((side1 == side2) && (side2 == side3) && (side == side1))
     #   return :equilateral
     # elsif ((side1 == side2) || (side2 == side2) || (b == c))
